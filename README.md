@@ -6,8 +6,8 @@ including,
 <ul>
 <li>lewis Mcclaren
 <br>
-Theo 
+<li>Theo 
 <br>
-Constantinos Sakkas  
+<li>Constantinos Sakkas  
 </li>
 </ul>
