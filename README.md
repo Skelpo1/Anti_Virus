@@ -3,10 +3,10 @@ Group Project Anti_Virus
 
 including,
 <br>
-<ol>
+<ul>
 lewis Mcclaren
 <br>
 Theo 
 <br>
 Constantinos Sakkas  
-</ol>
+</ul>
