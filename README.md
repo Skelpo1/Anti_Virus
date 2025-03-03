@@ -4,7 +4,7 @@ Group Project Anti_Virus
 
 <ul>
 
-WWith the main Developers of our front-end being
+With the main Developers of our front-end being
   <br>
 <li>Constantinos Sakkas
   <br>
