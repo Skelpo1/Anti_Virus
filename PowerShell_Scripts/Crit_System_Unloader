@@ -1,0 +1,45 @@
+ # Define the list of target directories
+>> $folders = @(
+>>     "$env:SystemRoot",
+>>     "$env:SystemRoot\System32",
+>>     "$env:SystemRoot\SysWOW64",
+>>     "$env:SystemRoot\System32\drivers",
+>>     "$env:SystemRoot\System32\Config",
+>>     "$env:SystemRoot\Temp",
+>>     "$env:SystemRoot\Logs",
+>>     "$env:SystemRoot\SoftwareDistribution",
+>>     "$env:SystemRoot\Prefetch",
+>>     "$env:SystemRoot\System32\CatRoot",
+>>     "$env:SystemRoot\System32\CatRoot2",
+>>     "$env:SystemRoot\System32\Tasks",
+>>     "C:\ProgramData",
+>>     "C:\Program Files",
+>>     "C:\Program Files (x86)",
+>>     $env:APPDATA,
+>>     $env:LOCALAPPDATA,
+>>     "$env:USERPROFILE\AppData\Local",
+>>     "$env:USERPROFILE\AppData\Roaming",
+>>     "$env:USERPROFILE\AppData\LocalLow",
+>>     "$env:USERPROFILE\AppData\Local\Temp",
+>>     "$env:USERPROFILE\Downloads",
+>>     "$env:USERPROFILE\Desktop",
+>>     "$env:ProgramData\Microsoft\Windows\Start Menu\Programs\Startup",
+>>     "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
+>> )
+>>
+>> foreach ($folder in $folders) {
+>>     # Replace any invalid filename characters for the output file name
+>>     $safeFolderName = ($folder -replace '[\\/:*?"<>|]', '_')
+>>     $outputFile = "F:\Classes\Third Year\ST\CMP315\Project\System navigation files\$safeFolderName.txt"
+>>     Write-Output "Generating list for: $folder"
+>>     try {
+>>         # Use -Force to include hidden and system files
+>>         Get-ChildItem -Path $folder -Recurse -Force -ErrorAction SilentlyContinue |
+>>             Select-Object FullName |
+>>             Out-File -FilePath $outputFile -Encoding UTF8
+>>         Write-Output "Output written to: $outputFile"
+>>     }
+>>     catch {
+>>         Write-Output "Could not access folder: $folder"
+>>     }
+>> }
